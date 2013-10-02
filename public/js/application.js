@@ -7,7 +7,6 @@ function interval_check (jid) {
 };
 
 function stop_checking() {
-  console.log("it's done! we can stop checking!")
   clearInterval(intervalId);
   $('li:first-child').prepend('<li>' +tweet_content+ '</li>')
 };
@@ -16,7 +15,7 @@ function done_yet (job_id){
   $.post('/status/'+job_id, function(data){
     done = data;  //"true" or "false"
   });
-  console.log("done = "+done);
+  
   if (done === "true") {
     stop_checking();
   }

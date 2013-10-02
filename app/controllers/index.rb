@@ -29,7 +29,6 @@ get '/auth' do
   session[:user_id] = @user.id
 
   redirect to '/'
-  
 end
 
 post '/status/:job_id' do
@@ -38,7 +37,6 @@ post '/status/:job_id' do
 end
 
 post '/submit_tweet' do 
-  p "the post request got called!"
   user = User.find(session[:user_id])
   user.tweet(params[:tweet])
   # redirect to "/"
