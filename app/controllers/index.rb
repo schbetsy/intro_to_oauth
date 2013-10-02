@@ -32,9 +32,9 @@ get '/auth' do
   
 end
 
-get '/status/:job_id' do
+post '/status/:job_id' do
   status = job_is_complete(params[:job_id])
-  p status
+  return status.to_s
 end
 
 post '/submit_tweet' do 
