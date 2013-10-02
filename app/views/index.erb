@@ -10,8 +10,10 @@
   <% if @access_token %>
     <div>
       <p>
-        <strong>token:</strong> <%= @access_token.token %><br>
-        <strong>secret:</strong> <%= @access_token.secret %><br>
+        <form action="/submit_tweet" method="POST">
+          <label for="tweet">Compose a tweet here: </label><input name="tweet" type="text" >
+          <input type="submit">
+        </form>
       </p>
       <p>
         <button><a href="/sign_out">Sign Out</a></button>
