@@ -7,7 +7,7 @@
     # we should show her a form that will allow her to send a tweet. If there is no
     # user logged-in, we should show the sign-in button.
   %>
-  <% if @access_token %>
+  <% if @user %>
     <div>
       <p>
         <form action="/submit_tweet" method="POST">
@@ -17,6 +17,13 @@
       </p>
       <p>
         <button><a href="/sign_out">Sign Out</a></button>
+      </p>
+      <p>Here are some of your recent tweets:
+        <ul>
+          <% @recent_tweets.each do |t| %>
+            <li><%= t.text %></li>
+          <% end %>
+        </ul>
       </p>
     </div>
   <% else %>
