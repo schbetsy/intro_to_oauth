@@ -10,9 +10,9 @@
   <% if @user %>
     <div>
       <p>
-        <form action="/submit_tweet" method="POST">
-          <label for="tweet">Compose a tweet here: </label><input name="tweet" type="text" >
-          <input type="submit">
+        <form id='submit_tweet' action="/submit_tweet" method="POST">
+          <label for="tweet">Compose a tweet here: </label><input id="input_tweet" name="tweet" type="text" >
+          <input id="submit_button" type="submit">
         </form>
       </p>
       <p>

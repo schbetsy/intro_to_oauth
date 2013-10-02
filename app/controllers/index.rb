@@ -32,9 +32,14 @@ get '/auth' do
   
 end
 
+get '/status/:job_id' do
+  status = job_is_complete(params[:job_id])
+  p status
+end
+
 post '/submit_tweet' do 
+  p "the post request got called!"
   user = User.find(session[:user_id])
-  tweeter = Twitter::Client.new(oauth_token: user.oauth_token, oauth_token_secret: user.oauth_secret)
-  tweeter.update(params[:tweet])
-  redirect to "/"
+  user.tweet(params[:tweet])
+  # redirect to "/"
 end
